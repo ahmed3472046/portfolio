@@ -1,0 +1,267 @@
+/* ============================================
+   ماركت زتونه — الهوية البصرية
+   لوحة الألوان: زيتوني دافئ + كريمي + ذهبي
+   ============================================ */
+
+:root {
+    --olive-dark: #3D4A28;
+    --olive: #6B7F3F;
+    --olive-light: #A8B77E;
+    --cream: #FBF7EE;
+    --cream-card: #FFFFFF;
+    --gold: #C89B3C;
+    --charcoal: #2A2A22;
+    --muted: #8A8A78;
+    --danger: #B5482F;
+    --success-bg: #EEF3E4;
+    --success-text: #4A5D28;
+    --error-bg: #FBEAE5;
+    --error-text: #B5482F;
+    --radius: 14px;
+    --shadow: 0 2px 10px rgba(61, 74, 40, 0.08);
+    --shadow-hover: 0 6px 20px rgba(61, 74, 40, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Cairo', 'Tahoma', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+}
+
+/* ===== الهيدر ===== */
+.header {
+    background: linear-gradient(135deg, var(--olive-dark), var(--olive));
+    color: white;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header nav {
+    display: flex;
+    gap: 8px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.header a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+/* ===== الحاوية ===== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--olive-dark);
+    margin: 20px 0 8px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--olive-dark);
+    margin: 0 0 16px;
+}
+
+/* ===== رسائل التنبيه ===== */
+.success, .error {
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    margin: 16px 0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.success { background: var(--success-bg); color: var(--success-text); border: 1px solid #D3DEBD; }
+.error { background: var(--error-bg); color: var(--error-text); border: 1px solid #EBC5B9; }
+
+/* ===== صفحة الرئيسية ===== */
+.hero {
+    text-align: center;
+    padding: 60px 20px 20px;
+}
+
+.hero-icon {
+    font-size: 56px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.hero p.subtitle {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.nav-buttons {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ===== أزرار ===== */
+.btn, button {
+    font-family: inherit;
+    background-color: var(--olive);
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.btn:hover, button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-seller { background: var(--gold); }
+.btn-buyer { background: var(--olive); }
+.btn-danger { background: var(--danger); }
+
+form button[type="submit"] {
+    background: var(--olive-dark);
+}
+
+/* ===== الكروت (الفورمات والأقسام) ===== */
+.card {
+    background: var(--cream-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(61, 74, 40, 0.06);
+}
+
+form {
+    background: var(--cream-card);
+    padding: 24px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(61, 74, 40, 0.06);
+}
+
+form .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+input, select {
+    font-family: inherit;
+    padding: 11px 14px;
+    margin: 4px 0;
+    border: 1.5px solid #E4E0D2;
+    border-radius: 10px;
+    background: var(--cream);
+    font-size: 14px;
+    min-width: 180px;
+    transition: border-color 0.2s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--olive);
+    background: white;
+}
+
+/* ===== الجداول ===== */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: 8px;
+    background: var(--cream-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+th, td {
+    padding: 13px 16px;
+    text-align: right;
+    font-size: 14px;
+}
+
+th {
+    background: var(--olive-dark);
+    color: white;
+    font-weight: 700;
+}
+
+tr:nth-child(even) td {
+    background: rgba(107, 127, 63, 0.05);
+}
+
+tr td {
+    border-bottom: 1px solid #EFEBDD;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== فوتر بسيط ===== */
+footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ===== موبايل ===== */
+@media (max-width: 600px) {
+    .header { flex-direction: column; text-align: center; }
+    input, select { min-width: 100%; }
+    .container { padding: 20px 16px 40px; }
+    h1 { font-size: 24px; }
+}

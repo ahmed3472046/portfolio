@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ماركت زتونه - البائع</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page-seller">
+    <div class="header">
+        <h2>📦ماركت زتونه</h2>
+        <a href="/">🏠 الرئيسية</a>
+        <a href="/seller">👨‍💼 البائع</a>
+        <a href="/buyer">🛒 المشتري</a>
+    </div>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <h1>👨‍💼 لوحة تحكم البائع</h1>
+
+        <!-- إضافة منتج جديد -->
+        <form method="POST" action="/add_product">
+            <h3>➕ إضافة منتج جديد</h3>
+            <input type="text" name="name" placeholder="اسم المنتج" required>
+            <input type="number" name="quantity" placeholder="الكمية" value="0">
+            <button type="submit">إضافة</button>
+        </form>
+
+        <!-- تعديل الكمية -->
+        <form method="POST" action="/update_quantity">
+            <h3>✏️ تعديل كمية منتج</h3>
+            <select name="product_id" required>
+                <option value="">اختر المنتج</option>
+                {% for product in products %}
+                    <option value="{{ product.id }}">{{ product.name }} (الكمية الحالية: {{ product.quantity }})</option>
+                {% endfor %}
+            </select>
+            <input type="number" name="new_quantity" placeholder="الكمية الجديدة" required>
+            <button type="submit">تحديث الكمية</button>
+        </form>
+
+        <!-- حذف منتج -->
+        <form method="POST" action="/delete_product">
+            <h3>🗑️ حذف منتج</h3>
+            <select name="product_id" required>
+                <option value="">اختر المنتج للحذف</option>
+                {% for product in products %}
+                    <option value="{{ product.id }}">{{ product.name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn-danger">حذف</button>
+        </form>
+
+        <!-- جدول المنتجات -->
+        <h3>📋 جميع المنتجات</h3>
+        <table>
+            <tr><th>ID</th><th>اسم المنتج</th><th>الكمية</th></tr>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <!-- جدول جميع الطلبات -->
+        <h3>📄 جميع الطلبات</h3>
+        <table>
+            <tr><th>ID</th><th>المنتج</th><th>الكمية</th><th>اسم المشتري</th></tr>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.product.name }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.customer_name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
