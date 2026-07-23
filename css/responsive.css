@@ -1,0 +1,39 @@
+@media (max-width:992px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-content,
+.hero-image,
+.about-content,
+.about-image{
+    width:100%;
+}
+
+.about{
+    flex-direction:column;
+}
+
+.header{
+    padding:20px;
+}
+
+.headerLinks{
+    gap:15px;
+}
+
+.hero-content h1{
+    font-size:48px;
+}
+
+.hero-content h2{
+    font-size:32px;
+}
+
+.project-images{
+    grid-template-columns:1fr;
+}
+
+}
