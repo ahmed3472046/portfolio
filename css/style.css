@@ -442,3 +442,131 @@ nav{
 ::-webkit-scrollbar-thumb:hover{
     background:#1D4ED8;
 }
+/* =======================
+   Responsive
+======================= */
+
+@media(max-width:992px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:40px;
+        padding:60px 30px;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .hero-content a{
+        margin:0 10px 10px 0;
+    }
+
+    .hero-image{
+        width:100%;
+    }
+
+    .about{
+        flex-direction:column;
+        text-align:center;
+        padding:80px 30px;
+    }
+
+    .about-image,
+    .about-content{
+        width:100%;
+    }
+
+    .about-info{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .project-images{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .header{
+        height:auto;
+        margin:10px;
+        padding:15px 20px;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+    }
+
+    nav{
+        margin-left:0;
+    }
+
+    .headerLinks{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+    }
+
+    .headerLinks a{
+        font-size:15px;
+        padding:8px 14px;
+    }
+
+    .hero-content p:first-child{
+        font-size:17px;
+    }
+
+    .hero-content h1{
+        font-size:38px;
+    }
+
+    .hero-content h2{
+        font-size:26px;
+    }
+
+    .hero-content p{
+        font-size:16px;
+    }
+
+    .hero-content a{
+        display:block;
+        text-align:center;
+        margin:0 0 15px 0;
+    }
+
+    .hero-image img{
+        width:260px;
+        height:260px;
+    }
+
+    .about-content h2{
+        font-size:28px;
+    }
+
+    .about-info{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .info-card{
+        width:100%;
+        max-width:280px;
+    }
+
+    .skills h2,
+    .projects h2{
+        font-size:30px;
+    }
+
+    .project-content h3{
+        font-size:24px;
+    }
+
+    .contact h2{
+        font-size:30px;
+    }
+
+}
